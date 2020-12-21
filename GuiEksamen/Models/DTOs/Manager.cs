@@ -12,5 +12,9 @@ namespace GuiEksamen.Models.DTOs
         public string Email { get; set; }
         [MaxLength(60)]
         public string Password { get; set; }
+
+        // user settings
+        public int Freq { get; set; }
+        public int Duration { get; set; }
     }
 }

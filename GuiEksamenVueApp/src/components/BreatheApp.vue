@@ -30,7 +30,6 @@
                 intervalTime: null,
                 durationTimer: null,
                 duration: 0,
-                test: ""
             };
         },
 
@@ -40,17 +39,7 @@
 
         methods: {
             myConst: function () {
-                fetch("https://localhost:44368/api/Managers/1", {
-                    credentials: 'include',
-                    headers: {
-                        'Authorization': 'Bearer ' + localStorage.getItem("token"),
-                        'Content-Type': 'application/json'
-                    }
-                })
-                    .then(response => response.json())
-                    .then(data =>
-                        title.innerHTML = "Rember to breathe, " + data.firstName + " " + data.lastName
-                    );
+                this.fetchData();
             },
 
             start: function () {
@@ -79,6 +68,21 @@
                 this.duration--;
                 timeMsg.innerHTML = "Time left: " + this.duration;
             },
+            fetchData: function () {
+                fetch("https://localhost:44368/api/Managers/1", {
+                    credentials: 'include',
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem("token"),
+                        'Content-Type': 'application/json'
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        title.innerHTML = "Hello, " + data.firstName + " " + data.lastName,
+                        freqEle.value = data.freq,
+                        timeEle.value = data.duration
+                    });
+            }
         }
     };
 </script>

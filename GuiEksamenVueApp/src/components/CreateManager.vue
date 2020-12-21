@@ -16,9 +16,20 @@
                 <label class="control-label">Email</label>
                 <input v-model="Email" class="input form-control" type="text" placeholder="Email">
             </div>
+
             <div class="form-group">
                 <label class="control-label">Password</label>
                 <input v-model="Password" class="input form-control" type="text" placeholder="Password">
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Frequency</label>
+                <input v-model="Freq" class="input form-control" type="number" placeholder="Frequency">
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Duration</label>
+                <input v-model="Duration" class="input form-control" type="number" placeholder="Duration">
             </div>
 
             <div class="form-group">
@@ -40,6 +51,8 @@
                 Lastname: '',
                 Email: '',
                 Password: '',
+                Freq: '',
+                Duration: '',
                 msg: ''
             }
         },
@@ -51,7 +64,9 @@
                         firstname: this.Firstname,
                         lastname: this.Lastname,
                         email: this.Email,
-                        password: this.Password
+                        password: this.Password,
+                        freq: parseInt(this.Freq),
+                        duration: parseInt(this.Duration)
                     }),
                     credentials: 'include',
                     headers: {

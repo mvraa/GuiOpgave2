@@ -72,7 +72,8 @@ namespace GuiEksamen.Data
                     Email = "boss@m.dk",
                     FirstName = "The",
                     LastName = "Boss",
-                    
+                    Freq = 2000,
+                    Duration = 11000
                 });
                 context.SaveChanges();
         }

@@ -107,6 +107,9 @@ namespace GuiEksamen.Controllers
             }
             manager.FirstName = managerDto.FirstName;
             manager.LastName = managerDto.LastName;
+            manager.Freq = managerDto.Freq;
+            manager.Duration = managerDto.Duration;
+
             var account = new EfAccount()
             {
                 Email = manager.Email,

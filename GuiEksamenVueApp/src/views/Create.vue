@@ -2,18 +2,18 @@
     <div class="container">
         <h1 class="text-center">Create</h1><br />
         <div class="row">
-            <create-manager/>
+            <create-user/>
         </div> 
     </div>
 </template>
 
 <script>
-    import CreateManager from '../components/CreateManager.vue';
+    import CreateUser from '../components/CreateUser.vue';
 
     export default {
         name: 'Create',
         components: {
-            CreateManager
+            CreateUser
         }
     }
 </script>

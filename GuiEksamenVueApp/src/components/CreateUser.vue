@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>Create Manager</h2>
+        <h2>Create User</h2>
         <form class="form-group">
             <div class="form-group">
                 <label class="control-label">Firstname</label>
@@ -33,7 +33,7 @@
             </div>
 
             <div class="form-group">
-                <button type="submit" @click="CreateModel" class="btn btn-primary">Create</button>
+                <button type="submit" @click="CreateUser" class="btn btn-primary">Create</button>
             </div>
 
             <div v-html="msg"></div>
@@ -44,7 +44,7 @@
 <script>
 
     export default {
-        name: 'CreateManager',
+        name: 'CreateUser',
         data() {
             return {
                 Firstname: '',
@@ -57,7 +57,7 @@
             }
         },
         methods: {
-            CreateModel() {
+            CreateUser() {
                 fetch('https://localhost:44368/api/Managers', {
                     method: 'POST',
                     body: JSON.stringify({
@@ -66,7 +66,7 @@
                         email: this.Email,
                         password: this.Password,
                         freq: parseInt(this.Freq),
-                        duration: parseInt(this.Duration)
+                        duration: parseInt(this.Duration),
                     }),
                     credentials: 'include',
                     headers: {

@@ -28,8 +28,7 @@
         data() {
             return {
                 intervalTime: null,
-                durationTimer: null,
-                duration: 0,
+                durationTimer: null
             };
         },
 

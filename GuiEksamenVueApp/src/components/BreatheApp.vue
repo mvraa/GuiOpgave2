@@ -38,7 +38,7 @@
 
         methods: {
             myConst: function () {
-                this.fetchData();
+                this.fetchData(this.getUserId());
             },
 
             start: function () {
@@ -67,8 +67,9 @@
                 this.duration--;
                 timeMsg.innerHTML = "Time left: " + this.duration;
             },
-            fetchData: function () {
-                fetch("https://localhost:44368/api/Managers/1", {
+            fetchData: function (id) {
+                console.log(id);
+                fetch("https://localhost:44368/api/Managers/" + id, {
                     credentials: 'include',
                     headers: {
                         'Authorization': 'Bearer ' + localStorage.getItem("token"),
@@ -81,6 +82,9 @@
                         freqEle.value = data.freq,
                         timeEle.value = data.duration
                     });
+            },
+            getUserId: function () {
+                return this.$store.getters.userId;
             }
         }
     };

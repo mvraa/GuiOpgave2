@@ -46,13 +46,9 @@
             },
             isManager() {
                 let id = this.$store.getters.userId;
-
-                return (id === '-1');
             },
             isModel() {
                 let id = this.$store.getters.userId;
-
-                return (id !== '-1' && id !== 'unknown');
             }
         }
     }

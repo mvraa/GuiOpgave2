@@ -36,7 +36,7 @@
     <Content Include="src\App.vue" />
     <Content Include="src\assets\logo.png" />
     <Content Include="src\components\BreatheApp.vue" />
-    <Content Include="src\components\CreateManager.vue" />
+    <Content Include="src\components\CreateUser.vue" />
     <Content Include="src\components\Header.vue">
       <SubType>Code</SubType>
     </Content>

@@ -36,11 +36,6 @@ namespace GuiEksamen.Controllers
             _appSettings = appSettings.Value;
         }
 
-        /// <summary>
-        /// You must login before you can use any other api call.
-        /// </summary>
-        /// <param name="login"></param>
-        /// <returns></returns>
         [HttpPost("login"), AllowAnonymous]
         public async Task<ActionResult<Token>> Login([FromBody]Login login)
         {
@@ -55,15 +50,12 @@ namespace GuiEksamen.Controllers
                     var validPwd = Verify(login.Password, account.PwHash);
                     if (validPwd)
                     {
-                        long modelId = -1;
-                        //if (!account.IsManager)
-                        //{
-                        //    var model = await _context.Models.Where(m => m.EfAccountId == account.EfAccountId)
-                        //        .FirstOrDefaultAsync().ConfigureAwait(false);
-                        //    if (model != null)
-                        //        modelId = model.EfModelId;
-                        //}
-                        var jwt = GenerateToken(account.Email, modelId, account.IsManager);
+                        var user = await _context.Managers.Where(m => m.Email == account.Email)
+                            .FirstOrDefaultAsync().ConfigureAwait(false);
+
+                        long userId = user.EfManagerId;
+
+                        var jwt = GenerateToken(account.Email, userId, account.IsManager);
                         var token = new Token() { JWT = jwt };
                         return token;
                     }
@@ -74,11 +66,6 @@ namespace GuiEksamen.Controllers
             return BadRequest(ModelState);
         }
 
-        /// <summary>
-        /// Use to change the password.
-        /// </summary>
-        /// <param name="login"></param>
-        /// <returns></returns>
         [HttpPut("Password")]
         public async Task<ActionResult<Token>> ChangePassword([FromBody]Login login)
         {

@@ -69,7 +69,7 @@
             },
             fetchData: function (id) {
                 console.log(id);
-                fetch("https://localhost:44368/api/Managers/" + id, {
+                fetch("https://localhost:44368/api/User/" + id, {
                     credentials: 'include',
                     headers: {
                         'Authorization': 'Bearer ' + localStorage.getItem("token"),

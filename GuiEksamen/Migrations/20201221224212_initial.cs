@@ -20,10 +20,10 @@ namespace GuiEksamen.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Managers",
+                name: "Users",
                 columns: table => new
                 {
-                    EfManagerId = table.Column<long>(nullable: false)
+                    EfUserId = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     EfAccountId = table.Column<long>(nullable: false),
                     AccountEmail = table.Column<string>(nullable: true),
@@ -35,9 +35,9 @@ namespace GuiEksamen.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Managers", x => x.EfManagerId);
+                    table.PrimaryKey("PK_Users", x => x.EfUserId);
                     table.ForeignKey(
-                        name: "FK_Managers_Accounts_AccountEmail",
+                        name: "FK_Users_Accounts_AccountEmail",
                         column: x => x.AccountEmail,
                         principalTable: "Accounts",
                         principalColumn: "Email",
@@ -51,13 +51,13 @@ namespace GuiEksamen.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Managers_AccountEmail",
-                table: "Managers",
+                name: "IX_Users_AccountEmail",
+                table: "Users",
                 column: "AccountEmail");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Managers_Email",
-                table: "Managers",
+                name: "IX_Users_Email",
+                table: "Users",
                 column: "Email",
                 unique: true,
                 filter: "[Email] IS NOT NULL");
@@ -66,7 +66,7 @@ namespace GuiEksamen.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Managers");
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Accounts");

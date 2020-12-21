@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GuiEksamen.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201221222909_initial")]
+    [Migration("20201221224212_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,7 +43,7 @@ namespace GuiEksamen.Migrations
 
             modelBuilder.Entity("GuiEksamen.Models.Entities.EfUser", b =>
                 {
-                    b.Property<long>("EfManagerId")
+                    b.Property<long>("EfUserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -72,7 +72,7 @@ namespace GuiEksamen.Migrations
                         .HasColumnType("nvarchar(32)")
                         .HasMaxLength(32);
 
-                    b.HasKey("EfManagerId");
+                    b.HasKey("EfUserId");
 
                     b.HasIndex("AccountEmail");
 
@@ -80,7 +80,7 @@ namespace GuiEksamen.Migrations
                         .IsUnique()
                         .HasFilter("[Email] IS NOT NULL");
 
-                    b.ToTable("Managers");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("GuiEksamen.Models.Entities.EfUser", b =>

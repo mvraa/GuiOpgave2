@@ -50,7 +50,7 @@ namespace GuiEksamen.Controllers
                     var validPwd = Verify(login.Password, account.PwHash);
                     if (validPwd)
                     {
-                        var user = await _context.Managers.Where(m => m.Email == account.Email)
+                        var user = await _context.Users.Where(m => m.Email == account.Email)
                             .FirstOrDefaultAsync().ConfigureAwait(false);
 
                         long userId = user.EfUserId;

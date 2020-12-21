@@ -78,7 +78,7 @@ namespace GuiEksamen.Migrations
                         .IsUnique()
                         .HasFilter("[Email] IS NOT NULL");
 
-                    b.ToTable("Managers");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("GuiEksamen.Models.Entities.EfUser", b =>

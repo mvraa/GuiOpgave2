@@ -58,7 +58,7 @@
         },
         methods: {
             CreateUser() {
-                fetch('https://localhost:44368/api/Managers', {
+                fetch('https://localhost:44368/api/User', {
                     method: 'POST',
                     body: JSON.stringify({
                         firstname: this.Firstname,

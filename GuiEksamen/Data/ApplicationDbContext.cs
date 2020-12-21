@@ -13,7 +13,7 @@ namespace GuiEksamen.Data
                 : base(options) { }
 
         public DbSet<EfAccount> Accounts { get; set; }
-        public DbSet<EfUser> Managers { get; set; }
+        public DbSet<EfUser> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

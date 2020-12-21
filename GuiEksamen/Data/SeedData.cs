@@ -20,7 +20,7 @@ namespace GuiEksamen.Data
             context.Database.EnsureCreated();
             if (!context.Accounts.Any())
                 SeedAccounts(context);
-            if (!context.Managers.Any())
+            if (!context.Users.Any())
                 SeedManagers(context);
         }
 
@@ -40,7 +40,7 @@ namespace GuiEksamen.Data
 
         static void SeedManagers(ApplicationDbContext context)
         {
-            context.Managers.Add(
+            context.Users.Add(
                 new EfUser
                 {
                     EfAccountId = 1,

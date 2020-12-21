@@ -12,7 +12,7 @@ namespace GuiEksamen.Utilities
         {
             Claim roleClaim;
             if (isManager)
-                roleClaim = new Claim("Role", "Manager");
+                roleClaim = new Claim("Role", "User");
             else
                 roleClaim = new Claim("Role", "Model");
 

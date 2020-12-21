@@ -53,7 +53,7 @@ namespace GuiEksamen.Controllers
                         var user = await _context.Managers.Where(m => m.Email == account.Email)
                             .FirstOrDefaultAsync().ConfigureAwait(false);
 
-                        long userId = user.EfManagerId;
+                        long userId = user.EfUserId;
 
                         var jwt = GenerateToken(account.Email, userId, account.IsManager);
                         var token = new Token() { JWT = jwt };
@@ -102,7 +102,7 @@ namespace GuiEksamen.Controllers
         {
             Claim roleClaim;
             if (isManager)
-                roleClaim = new Claim(ClaimTypes.Role, "Manager");
+                roleClaim = new Claim(ClaimTypes.Role, "User");
             else
                 roleClaim = new Claim(ClaimTypes.Role, "Model");
 

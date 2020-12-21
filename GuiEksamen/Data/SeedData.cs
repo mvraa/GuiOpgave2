@@ -41,7 +41,7 @@ namespace GuiEksamen.Data
         static void SeedManagers(ApplicationDbContext context)
         {
             context.Managers.Add(
-                new EfManager
+                new EfUser
                 {
                     EfAccountId = 1,
                     Email = "boss@m.dk",

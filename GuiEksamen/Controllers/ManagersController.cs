@@ -17,7 +17,7 @@ namespace GuiEksamen.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Manager")]
+    [Authorize(Roles = "User")]
     public class ManagersController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -32,14 +32,14 @@ namespace GuiEksamen.Controllers
 
         // GET: api/Managers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<EfManager>>> GetManagers()
+        public async Task<ActionResult<IEnumerable<EfUser>>> GetManagers()
         {
             return await _context.Managers.ToListAsync();
         }
 
         // GET: api/Managers/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<EfManager>> GetManager(long id)
+        public async Task<ActionResult<EfUser>> GetManager(long id)
         {
             var manager = await _context.Managers.FindAsync(id);
 
@@ -53,15 +53,15 @@ namespace GuiEksamen.Controllers
 
         // PUT: api/Managers/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutManager(long id, EfManager manager)
+        public async Task<IActionResult> PutManager(long id, EfUser manager)
         {
-            if (id != manager.EfManagerId)
+            if (id != manager.EfUserId)
             {
                 return BadRequest();
             }
 
             // Check if new email
-            var old = await _context.Managers.FindAsync(manager.EfManagerId);
+            var old = await _context.Managers.FindAsync(manager.EfUserId);
             if (old.Email != manager.Email)
 {
                 // Update account
@@ -92,11 +92,11 @@ namespace GuiEksamen.Controllers
 
         // POST: api/Managers
         [HttpPost]
-        public async Task<ActionResult<EfManager>> PostManager(Manager managerDto)
+        public async Task<ActionResult<EfUser>> PostManager(User managerDto)
         {
             if (managerDto == null)
                 return BadRequest("Data is missing");
-            var manager = new EfManager();
+            var manager = new EfUser();
             manager.Email = managerDto.Email.ToLowerInvariant();
             var emailExist = await _context.Accounts.Where(u => u.Email == manager.Email)
                 .FirstOrDefaultAsync().ConfigureAwait(false);
@@ -121,12 +121,12 @@ namespace GuiEksamen.Controllers
             _context.Managers.Add(manager);
             await _context.SaveChangesAsync();
 
-            return Created(manager.EfManagerId.ToString(), manager);
+            return Created(manager.EfUserId.ToString(), manager);
         }
 
         // DELETE: api/Managers/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<EfManager>> DeleteManager(long id)
+        public async Task<ActionResult<EfUser>> DeleteManager(long id)
         {
             var manager = await _context.Managers.FindAsync(id);
             if (manager == null)
@@ -143,7 +143,7 @@ namespace GuiEksamen.Controllers
 
         private bool ManagerExists(long id)
         {
-            return _context.Managers.Any(e => e.EfManagerId == id);
+            return _context.Managers.Any(e => e.EfUserId == id);
         }
     }
 }

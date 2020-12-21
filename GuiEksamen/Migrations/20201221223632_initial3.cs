@@ -2,7 +2,7 @@
 
 namespace GuiEksamen.Migrations
 {
-    public partial class test3 : Migration
+    public partial class initial3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

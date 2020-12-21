@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GuiEksamen.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201221220251_test3")]
-    partial class test3
+    [Migration("20201221222909_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,11 +22,6 @@ namespace GuiEksamen.Migrations
 
             modelBuilder.Entity("GuiEksamen.Models.Entities.EfAccount", b =>
                 {
-                    b.Property<long>("EfAccountId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(254)")
                         .HasMaxLength(254);
@@ -38,21 +33,23 @@ namespace GuiEksamen.Migrations
                         .HasColumnType("nvarchar(60)")
                         .HasMaxLength(60);
 
-                    b.HasKey("EfAccountId");
+                    b.HasKey("Email");
 
                     b.HasIndex("Email")
-                        .IsUnique()
-                        .HasFilter("[Email] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("Accounts");
                 });
 
-            modelBuilder.Entity("GuiEksamen.Models.Entities.EfManager", b =>
+            modelBuilder.Entity("GuiEksamen.Models.Entities.EfUser", b =>
                 {
                     b.Property<long>("EfManagerId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AccountEmail")
+                        .HasColumnType("nvarchar(254)");
 
                     b.Property<int>("Duration")
                         .HasColumnType("int");
@@ -77,7 +74,7 @@ namespace GuiEksamen.Migrations
 
                     b.HasKey("EfManagerId");
 
-                    b.HasIndex("EfAccountId");
+                    b.HasIndex("AccountEmail");
 
                     b.HasIndex("Email")
                         .IsUnique()
@@ -86,13 +83,11 @@ namespace GuiEksamen.Migrations
                     b.ToTable("Managers");
                 });
 
-            modelBuilder.Entity("GuiEksamen.Models.Entities.EfManager", b =>
+            modelBuilder.Entity("GuiEksamen.Models.Entities.EfUser", b =>
                 {
                     b.HasOne("GuiEksamen.Models.Entities.EfAccount", "Account")
                         .WithMany()
-                        .HasForeignKey("EfAccountId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AccountEmail");
                 });
 #pragma warning restore 612, 618
         }

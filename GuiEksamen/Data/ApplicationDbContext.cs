@@ -13,7 +13,7 @@ namespace GuiEksamen.Data
                 : base(options) { }
 
         public DbSet<EfAccount> Accounts { get; set; }
-        public DbSet<EfManager> Managers { get; set; }
+        public DbSet<EfUser> Managers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace GuiEksamen.Data
             modelBuilder.Entity<EfAccount>()
                 .HasIndex(p => p.Email)
                 .IsUnique();
-            modelBuilder.Entity<EfManager>()
+            modelBuilder.Entity<EfUser>()
                 .HasIndex(p => p.Email)
                 .IsUnique();
         }

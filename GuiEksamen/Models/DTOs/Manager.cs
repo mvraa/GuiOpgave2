@@ -2,7 +2,7 @@
 
 namespace GuiEksamen.Models.DTOs
 {
-    public class Manager
+    public class User
     {
         [MaxLength(64)]
         public string FirstName { get; set; }

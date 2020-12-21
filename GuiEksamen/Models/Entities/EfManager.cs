@@ -2,9 +2,9 @@
 
 namespace GuiEksamen.Models.Entities
 {
-    public class EfManager
+    public class EfUser
     {
-        public long EfManagerId { get; set; }
+        public long EfUserId { get; set; }
         public long EfAccountId { get; set; }
         public EfAccount Account { get; set; }
         [MaxLength(64)]

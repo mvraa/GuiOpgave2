@@ -1,14 +1,19 @@
 <template>
     <div id="app">
-        <input id="interval" type="number" placeholder="Interval" />
-        <input id="timeInput" type="number" placeholder="Time" />
+        <label class="control-label">Frequency(Hz)</label>
+        <input id="freqEle" class="input form-control" type="number" placeholder="Interval" />
+        
+        <label class="control-label">Time duration(seconds)</label>
+        <input id="timeEle" class="input form-control" type="number" placeholder="Time" />
 
-        <input id="start" type="button" value="Start" @click="start" />
-        <input id="stop" type="button" value="Stop" @click="stop" />
+        <div class="form-group text-center">
+            <input id="start" type="button" class="btn btn-primary" value="Start" @click="start" />
+            <input id="stop" type="button" class="btn btn-danger" value="Stop" @click="stop" />
+        </div>
         <br /><br />
         <p id="timeMsg"></p>
 
-        <p id="msg"></p>
+        <p id="freqMsg"></p>
     </div>
 </template>
 
@@ -29,42 +34,49 @@
 
         methods: {
             myConst: function () {
-                console.log(timeInput);
-                this.duration = 10;
             },
 
             start: function () {
-                var self = this;
-
-                this.intervalTime = setInterval(function () {
-                    if (msg.innerHTML == "Breathe in") {
-                        msg.innerHTML = "Breathe out";
-                    }
-                    else {
-                        msg.innerHTML = "Breathe in";
-                    }
-                }, parseInt(interval.value));
-
-                this.durationTimer = setInterval(function () {
-                    if (self.duration <= 0) {
-                        self.stop();
-                        return;
-                    }
-                    self.duration--;
-                    console.log(self.duration);
-                    timeMsg.innerHTML = "Time left: " + self.duration;
-                }, 1000);
+                this.duration = timeEle.value;
+                this.intervalTime = setInterval(this.intervalHandle.bind(this), parseInt(freqEle.value));
+                this.durationTimer = setInterval(this.durationHandle.bind(this), 1000);
             },
             stop: function () {
                 clearInterval(this.intervalTime);
                 clearInterval(this.durationTimer);
+            },
+
+            intervalHandle: function () {
+                if (freqMsg.innerHTML == "Breathe in") {
+                    freqMsg.innerHTML = "Breathe out";
+                }
+                else {
+                    freqMsg.innerHTML = "Breathe in";
+                }
+            },
+            durationHandle: function () {
+                if (this.duration <= 0) {
+                    this.stop();
+                    return;
+                }
+                this.duration--;
+                timeMsg.innerHTML = "Time left: " + this.duration;
             }
         }
     };
 </script>
 
 <style scoped>
-    #msg {
+    #freqMsg {
         font-size: 40px;
+    }
+    input{
+        margin: 20px;
+    }
+    label{
+        font-size:20px;
+    }
+    .btn{
+        font-size:25px;
     }
 </style>

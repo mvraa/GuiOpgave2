@@ -13,8 +13,8 @@
                     <li class="nav-item" v-if="loggedIn">
                         <router-link class="nav-link text-light" to="/jobs">Jobs</router-link>
                     </li>
-                    <li class="nav-item" v-if="loggedIn && isManager">
-                        <router-link class="nav-link text-light" to="/create">Create</router-link>
+                    <li class="nav-item">
+                        <router-link class="nav-link text-light" to="/create">Sign up</router-link>
                     </li>
                     <li class="nav-item" v-if="!loggedIn">
                         <router-link class="nav-link text-light" to="/login">Login</router-link>

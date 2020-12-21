@@ -30,14 +30,14 @@ namespace GuiEksamen.Controllers
             _appSettings = appSettings.Value;
         }
 
-        // GET: api/Managers
+        // GET: api/User
         [HttpGet]
         public async Task<ActionResult<IEnumerable<EfUser>>> GetManagers()
         {
             return await _context.Users.ToListAsync();
         }
 
-        // GET: api/Managers/5
+        // GET: api/User/5
         [HttpGet("{id}")]
         public async Task<ActionResult<EfUser>> GetManager(long id)
         {
@@ -51,7 +51,7 @@ namespace GuiEksamen.Controllers
             return manager;
         }
 
-        // PUT: api/Managers/5
+        // PUT: api/User/[id]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutManager(long id, EfUser manager)
         {
@@ -90,13 +90,15 @@ namespace GuiEksamen.Controllers
             return NoContent();
         }
 
-        // POST: api/Managers
+        // POST: api/User
         [HttpPost]
         public async Task<ActionResult<EfUser>> PostManager(User managerDto)
         {
             if (managerDto == null)
-                return BadRequest("Data is missing");
+                return BadRequest("No data!");
+
             var manager = new EfUser();
+
             manager.Email = managerDto.Email.ToLowerInvariant();
             var emailExist = await _context.Accounts.Where(u => u.Email == manager.Email)
                 .FirstOrDefaultAsync().ConfigureAwait(false);
@@ -124,7 +126,7 @@ namespace GuiEksamen.Controllers
             return Created(manager.EfUserId.ToString(), manager);
         }
 
-        // DELETE: api/Managers/5
+        // DELETE: api/User/[id]
         [HttpDelete("{id}")]
         public async Task<ActionResult<EfUser>> DeleteManager(long id)
         {

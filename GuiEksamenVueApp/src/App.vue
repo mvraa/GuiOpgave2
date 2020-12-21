@@ -21,13 +21,15 @@
         background-color: rgb(40,45,50) !important;
     }
 
-
-
     nav {
         background-color: rgb(30,35,40) !important;
     }
 
     h1,h2,h3,h4,label,p {
         color: rgb(230,230,230);
+    }
+
+    hr {
+        background-color: rgb(230,230,230);
     }
 </style>

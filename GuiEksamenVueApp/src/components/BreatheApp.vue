@@ -2,6 +2,8 @@
     <div id="app">
         <h1 id="title" class="text-center">Breathe</h1>
 
+        <hr />
+
         <label class="control-label">Frequency(Hz)</label>
         <input id="freqEle" class="input form-control" type="number" placeholder="Interval" />
 
@@ -12,10 +14,11 @@
             <input id="start" type="button" class="btn btn-primary" value="Start" @click="start" />
             <input id="stop" type="button" class="btn btn-danger" value="Stop" @click="stop" />
         </div>
-        <br /><br />
-        <p id="timeMsg"></p>
-
-        <p id="freqMsg"></p>
+        <hr/>
+        <div class="text-center">
+            <p id="timeMsg"></p>
+            <p id="freqMsg"></p>
+        </div>
     </div>
 </template>
 
@@ -37,7 +40,7 @@
 
         methods: {
             myConst: function () {
-                fetch("https://localhost:44368/api/Managers/2", {
+                fetch("https://localhost:44368/api/Managers/1", {
                     credentials: 'include',
                     headers: {
                         'Authorization': 'Bearer ' + localStorage.getItem("token"),
@@ -46,7 +49,7 @@
                 })
                     .then(response => response.json())
                     .then(data =>
-                        title.innerHTML = "Rember to breathe, " + data.firstName
+                        title.innerHTML = "Rember to breathe, " + data.firstName + " " + data.lastName
                     );
             },
 

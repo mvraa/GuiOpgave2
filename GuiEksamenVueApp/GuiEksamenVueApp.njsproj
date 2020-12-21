@@ -42,10 +42,6 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="src\components\CreateManager.vue" />
-    <Content Include="src\components\CreateModel.vue" />
-    <Content Include="src\components\CreateJob.vue">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="src\components\Header.vue">
       <SubType>Code</SubType>
     </Content>

@@ -56,13 +56,13 @@ namespace GuiEksamen.Controllers
                     if (validPwd)
                     {
                         long modelId = -1;
-                        if (!account.IsManager)
-                        {
-                            var model = await _context.Models.Where(m => m.EfAccountId == account.EfAccountId)
-                                .FirstOrDefaultAsync().ConfigureAwait(false);
-                            if (model != null)
-                                modelId = model.EfModelId;
-                        }
+                        //if (!account.IsManager)
+                        //{
+                        //    var model = await _context.Models.Where(m => m.EfAccountId == account.EfAccountId)
+                        //        .FirstOrDefaultAsync().ConfigureAwait(false);
+                        //    if (model != null)
+                        //        modelId = model.EfModelId;
+                        //}
                         var jwt = GenerateToken(account.Email, modelId, account.IsManager);
                         var token = new Token() { JWT = jwt };
                         return token;

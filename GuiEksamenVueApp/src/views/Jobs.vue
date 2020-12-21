@@ -2,8 +2,7 @@
     <div>
         <div class="container">
             <main role="main" class="pb-3">
-                <h1 class="text-center">Jobs</h1>
-                <list-jobs></list-jobs>
+                <h1 class="text-center">Breathe</h1>
             </main>
         </div>
     </div>

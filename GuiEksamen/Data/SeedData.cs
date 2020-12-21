@@ -33,33 +33,8 @@ namespace GuiEksamen.Data
                     Email = "boss@m.dk",
                     PwHash = HashPassword("asdfQWER", BcryptWorkfactor),
                     IsManager = true
-                },
-                // Seed some models
-                new EfAccount
-                {
-                    Email = "nc@m.dk",
-                    PwHash = HashPassword("Pas123", BcryptWorkfactor),
-                    IsManager = false
-                },
-                new EfAccount
-                {
-                    Email = "hc@m.dk",
-                    PwHash = HashPassword("Pas123", BcryptWorkfactor),
-                    IsManager = false
-                },
-                new EfAccount
-                {
-                    Email = "al@m.dk",
-                    PwHash = HashPassword("Pas123", BcryptWorkfactor),
-                    IsManager = false
-                },
-                new EfAccount
-                {
-                    Email = "jk@m.dk",
-                    PwHash = HashPassword("Pas123", BcryptWorkfactor),
-                    IsManager = false
                 }
-                );
+            );
             context.SaveChanges();
         }
 

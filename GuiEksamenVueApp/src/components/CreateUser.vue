@@ -66,7 +66,7 @@
                         email: this.Email,
                         password: this.Password,
                         freq: parseInt(this.Freq),
-                        duration: parseInt(this.Duration),
+                        duration: parseInt(this.Duration)
                     }),
                     credentials: 'include',
                     headers: {

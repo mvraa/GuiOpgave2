@@ -1,7 +1,6 @@
 <template>
     <div class="container">
         <main id="main" role="main" class="pb-3">
-            <h1 class="text-center">Breathe</h1>
             <breathe-app />
         </main>
     </div>

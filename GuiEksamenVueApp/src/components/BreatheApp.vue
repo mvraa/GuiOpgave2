@@ -1,8 +1,10 @@
 <template>
     <div id="app">
+        <h1 id="title" class="text-center">Breathe</h1>
+
         <label class="control-label">Frequency(Hz)</label>
         <input id="freqEle" class="input form-control" type="number" placeholder="Interval" />
-        
+
         <label class="control-label">Time duration(seconds)</label>
         <input id="timeEle" class="input form-control" type="number" placeholder="Time" />
 
@@ -24,7 +26,8 @@
             return {
                 intervalTime: null,
                 durationTimer: null,
-                duration: 0
+                duration: 0,
+                test: ""
             };
         },
 
@@ -34,6 +37,17 @@
 
         methods: {
             myConst: function () {
+                fetch("https://localhost:44368/api/Managers/2", {
+                    credentials: 'include',
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem("token"),
+                        'Content-Type': 'application/json'
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data =>
+                        title.innerHTML = "Rember to breathe, " + data.firstName
+                    );
             },
 
             start: function () {
@@ -61,7 +75,7 @@
                 }
                 this.duration--;
                 timeMsg.innerHTML = "Time left: " + this.duration;
-            }
+            },
         }
     };
 </script>

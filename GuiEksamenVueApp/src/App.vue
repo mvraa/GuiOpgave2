@@ -27,19 +27,7 @@
         background-color: rgb(30,35,40) !important;
     }
 
-    h1 {
+    h1,h2,h3,h4,label,p {
         color: rgb(230,230,230);
-    }
-
-    h2 {
-        color: rgb(230,230,230);
-    }
-
-    h5 {
-        color: rgb(220,220,220);
-    }
-
-    label {
-        color: rgb(220,220,220);
     }
 </style>

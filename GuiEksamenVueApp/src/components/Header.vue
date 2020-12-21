@@ -11,7 +11,7 @@
             <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item" v-if="loggedIn">
-                        <router-link class="nav-link text-light" to="/jobs">Jobs</router-link>
+                        <router-link class="nav-link text-light" to="/Breathe">Breathe</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link text-light" to="/create">Sign up</router-link>

@@ -15,9 +15,9 @@ const routes = [
         component: () => import('../views/Login.vue')
     },
     {
-        path: '/jobs',
-        name: 'Jobs',
-        component: () => import('../views/Jobs.vue')
+        path: '/breathe',
+        name: 'Breathe',
+        component: () => import('../views/Breathe.vue')
     },
     {
         path: '/create',

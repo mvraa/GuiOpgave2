@@ -4,7 +4,6 @@
 
 <template>
     <div>
-        <h5 class="text-center">Latest fashion trends:</h5>
         <transition-group name="fade" tag="div">
             <div v-for="i in [currentIndex]" :key="i">
                 <img :src="currentImg" />
@@ -72,10 +71,10 @@
         data() {
             return {
                 images: [
-                    "https://cdn.trendhunterstatic.com/thumbs/hazmat-suit-fashion.jpeg",
-                    "https://i.pinimg.com/originals/cd/78/e1/cd78e150ad22908af830c2991374abe6.jpg",
-                    "https://i.pinimg.com/736x/da/81/ed/da81ed6b39388d37729193408f2cfdfb.jpg",
-                    "https://cdn.trendhunterstatic.com/phpthumbnails/263/263667/263667_4_600.jpeg"
+                    "https://i.ytimg.com/vi/grVvvs3Mx3U/maxresdefault.jpg",
+                    "https://i.ytimg.com/vi/tHwP_eAFeDg/maxresdefault.jpg",
+                    "https://i.ytimg.com/vi/SNNquGgYvbs/maxresdefault.jpg",
+                    "https://i.ytimg.com/vi/yeILl2yFzg8/maxresdefault.jpg"
                 ],
                 timer: null,
                 currentIndex: 0

@@ -35,23 +35,13 @@
     <Content Include="public\index.html" />
     <Content Include="src\App.vue" />
     <Content Include="src\assets\logo.png" />
-    <Content Include="src\components\AddAnExpense.vue">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="src\components\AddRemoveModel.vue">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="src\components\CreateManager.vue" />
     <Content Include="src\components\Header.vue">
       <SubType>Code</SubType>
     </Content>
     <Content Include="package.json" />
     <Content Include="README.md" />
-    <Content Include="src\components\ListJobs.vue" />
     <Content Include="src\components\LoginForm.vue" />
-    <Content Include="src\components\Models.vue">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="src\router\index.js">
       <SubType>Code</SubType>
     </Content>
@@ -61,7 +51,7 @@
     <Content Include="src\views\Home.vue">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="src\views\Jobs.vue">
+    <Content Include="src\views\Breathe.vue">
       <SubType>Code</SubType>
     </Content>
   </ItemGroup>

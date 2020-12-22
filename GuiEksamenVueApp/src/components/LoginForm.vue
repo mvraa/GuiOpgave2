@@ -18,6 +18,11 @@
                     </div>
                 </form>
             </div>
+            <div class="col-md-4" style="border:2px solid white">
+                <h3>Test brugere:</h3>
+                <p>bruger@bruger.dk : pass1</p>
+                <p>test@test.dk : pass2</p>
+            </div>
         </div>
     </div>
 </template>

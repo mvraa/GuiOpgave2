@@ -18,6 +18,7 @@
         <div class="text-center">
             <p id="timeMsg"></p>
             <p id="freqMsg"></p>
+            <p id="testMsg"></p>
         </div>
     </div>
 </template>
@@ -81,6 +82,22 @@
                         title.innerHTML = "Hello, " + data.firstName + " " + data.lastName,
                         freqEle.value = data.freq,
                         timeEle.value = data.duration
+                    });
+            },
+            fetchTimeData: function (id) {
+                console.log(id);
+                fetch("https://localhost:44368/api/User/usertime" + id, {
+                    credentials: 'include',
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem("token"),
+                        'Content-Type': 'application/json'
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        title.innerHTML = "Hello, " + data.firstName + " " + data.lastName,
+                            freqEle.value = data.freq,
+                            timeEle.value = data.duration
                     });
             },
             getUserId: function () {

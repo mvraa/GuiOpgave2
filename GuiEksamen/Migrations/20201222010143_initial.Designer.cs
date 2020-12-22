@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GuiEksamen.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201221224212_initial")]
+    [Migration("20201222010143_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

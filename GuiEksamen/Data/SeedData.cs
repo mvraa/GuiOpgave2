@@ -30,8 +30,14 @@ namespace GuiEksamen.Data
                 // Seed manager
                 new EfAccount
                 {
-                    Email = "boss@m.dk",
-                    PwHash = HashPassword("asdfQWER", BcryptWorkfactor),
+                    Email = "bruger@bruger.dk",
+                    PwHash = HashPassword("pass1", BcryptWorkfactor),
+                    IsManager = true
+                },
+                new EfAccount
+                {
+                    Email = "test@test.dk",
+                    PwHash = HashPassword("pass2", BcryptWorkfactor),
                     IsManager = true
                 }
             );
@@ -40,16 +46,26 @@ namespace GuiEksamen.Data
 
         static void SeedManagers(ApplicationDbContext context)
         {
-            context.Users.Add(
+            context.Users.AddRange(
                 new EfUser
                 {
                     EfAccountId = 1,
-                    Email = "boss@m.dk",
-                    FirstName = "The",
-                    LastName = "Boss",
+                    Email = "bruger@bruger.dk",
+                    FirstName = "Mathias",
+                    LastName = "Vraa",
                     Freq = 2000,
-                    Duration = 11000
-                });
+                    Duration = 11
+                },
+                new EfUser
+                {
+                    EfAccountId = 2,
+                    Email = "test@test.dk",
+                    FirstName = "Bente",
+                    LastName = "Bent",
+                    Freq = 5000,
+                    Duration = 10
+                }
+                );
                 context.SaveChanges();
         }
     }
